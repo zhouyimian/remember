@@ -10,4 +10,5 @@ public interface ActivityRecodeService {
 
     public List<ActivityRecode> getClassesActivityRecodes(String classId);
 
+    public ActivityRecode getActivityRecodeById(String activityId);
 }

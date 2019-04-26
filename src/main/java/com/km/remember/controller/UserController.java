@@ -2,18 +2,17 @@ package com.km.remember.controller;
 
 import com.km.remember.domain.User;
 import com.km.remember.service.UserService;
-import io.lettuce.core.dynamic.annotation.Param;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 @Api
 @Controller
 @RequestMapping("/users")
+@CrossOrigin
 public class UserController {
 
     @Autowired

@@ -25,4 +25,9 @@ public class ActivityRecodeServiceImpl implements ActivityRecodeService {
     public List<ActivityRecode> getClassesActivityRecodes(String classId){
         return activityRecodeDao.getClassesActivityRecodes(classId);
     }
+
+    @Override
+    public ActivityRecode getActivityRecodeById(String activityId) {
+        return activityRecodeDao.getActivityRecodeById(activityId);
+    }
 }

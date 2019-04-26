@@ -12,9 +12,12 @@ import java.util.List;
 @Mapper
 public interface ActivityRecodeDao {
 
-    @Select("select * from ActivityRecode")
+    @Select("select * from activityrecode")
     public List<ActivityRecode> getAllClassesActivityRecodes();
 
-    @Select("select * from ActivityRecode where classid = #{classId}")
+    @Select("select * from activityrecode where classid = #{classId}")
     public List<ActivityRecode> getClassesActivityRecodes(String classId);
+
+    @Select("select * from activityrecode where activityId = #{activityId}")
+    public ActivityRecode getActivityRecodeById(String activityId);
 }

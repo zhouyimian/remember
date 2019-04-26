@@ -1,23 +1,21 @@
 package com.km.remember.controller;
 
 import com.km.remember.domain.ClassInfo;
-import com.km.remember.domain.User;
 import com.km.remember.service.ClassService;
-import com.km.remember.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Api
 @Controller
-@RequestMapping("/classes")
+@RequestMapping("/class")
+@CrossOrigin
 public class ClassController {
 
     @Autowired
@@ -30,8 +28,14 @@ public class ClassController {
             @ApiImplicitParam(paramType="path", name = "classId", value = "班级编号", required = true, dataType = "String"),
     })
     public ClassInfo getClassInfo(@PathVariable String classId){
-        System.out.println(classId+"================");
-        return classService.getClassInfo(classId+"");
+        return classService.getClassInfo(classId);
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/")
+    @ApiOperation(value="", notes="返回所有班级信息")
+    public List<ClassInfo> getAllClassInfo(){
+        return classService.getAllClassInfo();
     }
 
 }
